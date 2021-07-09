@@ -1,0 +1,22 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio Website for finleycooper.co.uk",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FinleyCooper/portfolio.git"
+  },
+  "author": "Finley Cooper",
+  "bugs": {
+    "url": "https://github.com/FinleyCooper/portfolio/issues"
+  },
+  "homepage": "https://github.com/FinleyCooper/portfolio#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1"
+  }
+}
