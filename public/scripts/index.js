@@ -22,7 +22,7 @@ function spinningCircle() {
     });
 
     group.addEventListener("click", () => {
-        if (!group.classList.includes("idle")) return;
+        if (!Array.from(group.classList).includes("idle")) return;
         centerCircle.addEventListener("animationiteration", stopSpin, {once: true})
         group.classList.remove("idle");
         group.classList.add("connecting");
