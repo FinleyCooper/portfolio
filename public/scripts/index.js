@@ -7,6 +7,7 @@ function spinningCircle() {
         hexagon.classList.remove("spin");               
     }
     function startSpin() {
+        if (Array.from(group.classList).includes("connecting")) return;
         hexagon.removeEventListener("animationiteration", stopSpin);
         centerCircle.classList.add("enlarge-shrink");
         hexagon.classList.add("spin");
