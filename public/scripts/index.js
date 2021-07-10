@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-    spinningCircle();
+    spinningCircle(document.querySelector("#central-container svg"));
 })
-function spinningCircle() {
+function spinningCircle(svg) {
     function stopSpin() {
         centerCircle.classList.remove("enlarge-shrink");
         hexagon.classList.remove("spin");               
@@ -17,12 +17,12 @@ function spinningCircle() {
     let hexagon = document.querySelector("#hexagon");
     let group = document.querySelector("#spinningCircle")
 
-    group.addEventListener("mouseover", startSpin);
-    group.addEventListener("mouseleave", () => {
+    svg.addEventListener("mouseover", startSpin);
+    svg.addEventListener("mouseleave", () => {
         hexagon.addEventListener("animationiteration", stopSpin);
     });
 
-    group.addEventListener("click", () => {
+    svg.addEventListener("click", () => {
         if (!Array.from(group.classList).includes("idle")) return;
         centerCircle.addEventListener("animationiteration", stopSpin, {once: true})
         group.classList.remove("idle");
