@@ -1,15 +1,3 @@
-:root {
-    --light-blue: #80E9FF;
-    --light-purple: #7A73FF;
-    --light-green: #00ffa2;
-}
-body {
-    background-color: #121212;
-    font-family: Arial, Helvetica, sans-serif;
-}
-svg {
-    cursor: pointer;
-}
 @keyframes spin {
     100% {  transform: rotate(360deg); }
 }
@@ -29,27 +17,26 @@ svg {
 @keyframes blue-and-spin {
     100% { transform: rotate(360deg); stroke: var(--light-blue); }
 }
+:root {
+    --light-blue: #80E9FF;
+    --light-purple: #7A73FF;
+    --light-green: #00ffa2;
+}
+html {
+    height: 100%;
+}
+body {
+    display: grid;
+    place-items: center;
+    background-color: #121212;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100%;
+}
+svg {
+    cursor: pointer;
+}
 body {
     margin: 0px;
-}
-header {
-    position: relative;
-    width: 100%;
-    height: 80px;
-    background-color: #595959;
-}
-#header-container-left {
-    position: relative;
-    float: left;
-    height: inherit;
-    width: 30%;
-    padding-left: 120px;
-}
-#title-Finley {
-    color: #fff;
-    bottom: 30px;
-    position: relative;
-    display: inline-block;
 }
 #outerCircle {
     stroke: var(--light-blue);
@@ -86,4 +73,21 @@ header {
 .enlarge-shrink {
     transform-origin: center;
     animation: in-and-out 2s ease infinite;
+}
+#central-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    height: 600px;
+}
+#title-Finley {
+    margin-left: 40px;
+    color: #fff;
+    font-size: 60px;
+}
+@media (max-width: 750px) {
+    #central-container {
+        flex-direction: column;
+    }
 }
