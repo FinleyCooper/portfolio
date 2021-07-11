@@ -1,4 +1,20 @@
-document.addEventListener("DOMContentLoaded", spinningCircle);
+document.addEventListener("DOMContentLoaded", main);
+
+function main() {
+    spinningCircle();
+    commentAfterTyped();
+}
+
+function commentAfterTyped() {
+    let textToComment = document.querySelector("#title-Finley .type-writer")
+    textToComment.addEventListener("animationend", () => {
+        setTimeout(() => {
+            textToComment.classList.remove("type-writer");
+            textToComment.classList.add("comment");
+            document.querySelector("#double-slash").style.display = "initial";
+        }, 500)
+    }, {once: true})
+}
 
 function spinningCircle() {
     function stopSpin() {
