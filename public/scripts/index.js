@@ -12,7 +12,7 @@ function commentAfterTyped() {
             textToComment.classList.remove("type-writer");
             textToComment.classList.add("comment");
             document.querySelector("#double-slash").style.display = "initial";
-        }, 500)
+        }, 600)
     }, {once: true})
 }
 

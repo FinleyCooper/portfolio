@@ -19,7 +19,7 @@
 }
 @keyframes animated-text {
     0% { width: 0; }
-    100% { width: 650px; }
+    100% { width: 480px; }
 }
 @keyframes animated-cursor {
     0%, 49.9%, 100% { border-right-color: #ffffff; }
@@ -106,22 +106,25 @@ svg {
     font-family: 'Montserrat', sans-serif;
     font-weight: normal;
 }
-
+.comment {
+    border-right: solid 3px transparent;
+    animation: animated-cursor 1060ms linear infinite;
+}
 .comment, .type-writer {
+    white-space: nowrap;
+    overflow: hidden;
     font-family: 'Fira Code', monospace;
     font-style: italic;
     color: rgba(170, 170, 170, 0.35);
 }
 
-@media (min-width: 1183px) {
+@media (min-width: 844px) {
     #double-slash { display: none; }
     .type-writer {
         color: #ffffff;
         font-style: normal;
         border-right: solid 3px transparent;
-        white-space: nowrap;
-        overflow: hidden;
-        animation: animated-text 1.7s steps(30,end) 1s 1 normal both,
+        animation: animated-text 1.2s steps(22,end) 1s 1 normal both,
                     animated-cursor 1060ms linear 3;
     }
 }
