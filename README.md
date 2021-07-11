@@ -1,5 +1,11 @@
-# Finley Cooper's Portfolio Wwbiste
+# Finley Cooper's Portfolio Webiste
 
-Currrent undercontruction, this git repo is mostly used for heroku to pull off for testing  
+Currrently undercontruction, this git repo is mostly used for heroku to pull off for testing  
 
-https://finleycooper.co.uk
+To do list
+-- https://finley-cooper-portfolio.herokuapp.com CNAME to https://finleycooper.co.uk
+-- About me page
+-- Skills page
+-- Projects page
+-- Contact me page
+-- Backgrounds

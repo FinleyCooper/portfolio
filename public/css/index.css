@@ -25,20 +25,25 @@
 html {
     height: 100%;
     max-width: 100%;
-    overflow-x: hidden;
 }
 body {
-    display: grid;
-    place-items: center;
+    height: 100%;
+    margin: 0px;
+    color: #ffffff;
     background-color: #121212;
     font-family: Arial, Helvetica, sans-serif;
-    min-height: 100%;
     margin: 0px;
     max-width: 100%;
-    overflow-x: hidden;
 }
 svg {
     cursor: pointer;
+}
+.page {
+    min-height: 100%;
+}
+#first-page {
+    display: grid;
+    place-items: center;
 }
 #outerCircle {
     stroke: var(--light-blue);
@@ -76,7 +81,7 @@ svg {
     transform-origin: center;
     animation: in-and-out 2s ease infinite;
 }
-#central-container {
+.central-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -84,7 +89,6 @@ svg {
     height: 600px;
 }
 #title-Finley {
-    color: #fff;
     font-size: 40px;
 }
 #title-Finley h1 {
@@ -96,10 +100,12 @@ svg {
     color: rgba(170, 170, 170, 0.3);
 }
 @media (max-width: 750px) {
-    #central-container {
+    .central-container {
         flex-direction: column;
+        position: relative;
     }
     #title-Finley {
+        font-size: 6vw;
         margin-left: 0px;
         text-align: center;
     }

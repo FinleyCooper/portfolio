@@ -1,13 +1,12 @@
-document.addEventListener("DOMContentLoaded", () => {
-    spinningCircle(document.querySelector("#central-container svg"));
-})
-function spinningCircle(svg) {
+document.addEventListener("DOMContentLoaded", spinningCircle);
+
+function spinningCircle() {
     function stopSpin() {
         centerCircle.classList.remove("enlarge-shrink");
         hexagon.classList.remove("spin");               
     }
     function startSpin() {
-        if (Array.from(group.classList).includes("connecting")) return;
+        if (Array.from(svg.classList).includes("connecting")) return;
         hexagon.removeEventListener("animationiteration", stopSpin);
         centerCircle.classList.add("enlarge-shrink");
         hexagon.classList.add("spin");
@@ -15,21 +14,19 @@ function spinningCircle(svg) {
     let outerCircle = document.querySelector("#outerCircle");
     let centerCircle = document.querySelector("#centerCircle");
     let hexagon = document.querySelector("#hexagon");
-    let group = document.querySelector("#spinningCircle")
+    let svg = document.querySelector("#spinning-circle")
 
     svg.addEventListener("mouseover", startSpin);
-    svg.addEventListener("mouseleave", () => {
-        hexagon.addEventListener("animationiteration", stopSpin);
-    });
+    svg.addEventListener("mouseleave", () => { hexagon.addEventListener("animationiteration", stopSpin); });
 
     svg.addEventListener("click", () => {
-        if (!Array.from(group.classList).includes("idle")) return;
+        if (!Array.from(svg.classList).includes("idle")) return;
         centerCircle.addEventListener("animationiteration", stopSpin, {once: true})
-        group.classList.remove("idle");
-        group.classList.add("connecting");
+        svg.classList.remove("idle");
+        svg.classList.add("connecting");
         outerCircle.addEventListener("animationiteration", () => {
-            group.classList.add("connected");
-            group.classList.remove("connecting");
+            svg.classList.add("connected");
+            svg.classList.remove("connecting");
         }, {once: true})
     });
 }
