@@ -1,3 +1,6 @@
+"use strict";
+
+
 const express = require("express");
 require("dotenv").config()
 
@@ -11,5 +14,5 @@ app.get("/", (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`App listening on port ${port}`);
+    console.log(process.env.MODE === "PRODUCTION" ? `App Running in Production mode on port ${port}` : `Developer app running at http://localhost:${port}`);
 });
