@@ -9,3 +9,4 @@ To do list
 -- Projects page  
 -- Contact me page  
 -- Backgrounds  
+-- Improve accessablilty on mobile devices
