@@ -1,39 +1,34 @@
-@keyframes spin {
-    100% {  transform: rotate(360deg); }
-}
-@keyframes in-and-out {
-    0% { transform: scale(1); }
-    50% { transform: scale(3.2); }
-    100% { transform: scale(1); }
-}
-@keyframes fade-in {
-    100% { r: 0; opacity: 0.8; }
-}
-@keyframes pulse {
-    0% { r: 0; opacity: 0.8; }
-    50% { opacity: 0.6; }
-    100% { opacity: 0; r: 200; }
-}
-@keyframes blue-and-spin {
-    100% { transform: rotate(360deg); stroke: var(--light-blue); }
-}
-@keyframes animated-text {
-    0% { width: 0; }
-    100% { width: 480px; }
-}
-@keyframes animated-cursor {
-    0%, 49.9%, 100% { border-right-color: #ffffff; }
-    50%, 99.9% { border-right-color: transparent; }
-}
 :root {
     --light-blue: #80E9FF;
     --light-purple: #7A73FF;
     --light-green: #00ffa2;
 }
+::-webkit-scrollbar {
+    width: 12px;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-button {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+::-webkit-scrollbar-corner {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #222222;
+    border: 2px solid #242424;
+    border-radius: 10px;
+}
+
 html {
     height: 100%;
     max-width: 100%;
 }
+
 body {
     height: 100%;
     margin: 0px;
@@ -43,45 +38,127 @@ body {
     margin: 0px;
     max-width: 100%;
 }
-svg {
-    cursor: pointer;
-    width: 33%;
-    max-width: 100%;
-}
 .page {
     min-height: 100%;
 }
-#first-page {
-    display: grid;
-    place-items: center;
+
+h1.title {
+    font-size: 4.2vw;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+}
+
+h2.title {
+    font-size: 4.2vw;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+}
+
+
+/*
+ -----------------
+    Fixed SVG
+ ----------------
+*/
+
+@keyframes spin {
+    100% {  transform: rotate(360deg); }
+}
+@keyframes fast-spin-enlarge {
+    0% { transform: scale(0); }
+    100% { transform: scale(1) rotate(1080deg); }
+}
+@keyframes in-and-out {
+    0% { transform: scale(1); }
+    50% { transform: scale(3.2); }
+    100% { transform: scale(1); }
+}
+@keyframes fade-in {
+    100% { opacity: 0.8; }
+}
+@keyframes close-in {
+    100% { r: 0; }
+}
+
+@keyframes pulse {
+    0% { r: 0; opacity: 0.8; }
+    50% { opacity: 0.6; }
+    100% { opacity: 0; r: 200; }
+}
+@keyframes to-blue {
+    100% { stroke: var(--light-blue); }
+}
+@keyframes blue-and-spin {
+    100% { transform: rotate(360deg); stroke: var(--light-blue); }
+}
+@keyframes enlarge {
+    0% { transform: scale(0); }
+    100% { transform: scale(1); }
+}
+#spinning-circle {
+    width: 33%;
+    max-width: 100%;
+    position: fixed;
+    top: 50%;
+    right: 2vw;
+    transform: translateY(-50%);
+}
+#spinning-circle:not(.hidden, .unhiding) {
+    cursor: pointer;
 }
 #outerCircle {
     stroke: var(--light-blue);
+    opacity: 0.8;
 }
 #centerCircle {
     fill: var(--light-blue);
+    opacity: 0.8;
 }
 #hexagon {
     stroke: var(--light-purple);
+    opacity: 0.8;
+
 }
-.connecting #hexagon {
+.first-transform #hexagon {
     transform-origin: center;
     animation: blue-and-spin 2s ease infinite;
 }
-.connecting #outerCircle {
+.first-transform #outerCircle {
     transform-origin: center;
-    animation: fade-in 2s ease-in infinite;
+    animation: fade-in 2s ease-in infinite,
+                close-in 2s ease-in infinite;
 }
-.connected #centerCircle {
+.second-state #centerCircle {
     fill: var(--light-green);
 }
-.connected #outerCircle {
+.second-state #outerCircle {
     stroke: var(--light-green);
     transform-origin: center;
     animation: pulse 2s ease infinite;
 }
-.connected #hexagon {
+.second-state #hexagon {
     stroke: var(--light-blue);
+}
+.hidden {
+    opacity: 0;
+}
+.unhiding #outerCircle {
+    opacity: 0;
+    transform-origin: center;
+    animation: enlarge 2s cubic-bezier(0.64, 0, 0.78, 0) 1 1s,
+                fade-in 1.5s ease 1 1s normal forwards;
+}
+.unhiding #hexagon {
+    opacity: 0;
+    transform-origin: center;
+    animation: fast-spin-enlarge 3s cubic-bezier(0.16, 1, 0.3, 1) 1 1.2s,
+                fade-in 2s ease 1 1.2s normal forwards,
+                to-blue 2s cubic-bezier(0.61, 1, 0.88, 1) 1 1.2s reverse;
+}
+.unhiding #centerCircle {
+    opacity: 0.8;
+    transform-origin: center;
+    animation: enlarge 1.5s cubic-bezier(0.64, 0, 0.78, 0);
 }
 .spin {
     transform-origin: center;
@@ -91,33 +168,75 @@ svg {
     transform-origin: center;
     animation: in-and-out 2s ease infinite;
 }
-.central-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 90%;
-    height: 600px;
+
+
+/*
+ -----------------
+    First page
+ -----------------
+*/
+
+@keyframes animated-text {
+    0% { width: 0; }
+    100% { width: 480px; }
 }
-#title-Finley {
-    font-size: 36px;
+@keyframes animated-cursor {
+    0%, 49.9%, 100% { border-right-color: #ffffff; }
+    50%, 99.9% { border-right-color: transparent; }
 }
-#title-Finley h1 {
-    font-size: 80px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: normal;
+@keyframes slide-left {
+    100% {
+        transform: translateX(-30vw);
+    }
+}
+#first-page {
+    display: grid;
+    place-items: center;
+}
+.slide-left {
+    animation: slide-left 1s cubic-bezier(0.68, -0.6, 0.32, 1.6) 0s 1 normal forwards;
 }
 .comment {
+    max-width: 27.5vw;
+    white-space: nowrap;
+    overflow: hidden;
+    color: rgba(170, 170, 170, 0.35);
+    font-style: italic;
+    font-size: 1.85vw;
+    font-family: 'Fira Code', monospace;
     border-right: solid 3px transparent;
     animation: animated-cursor 1060ms linear infinite;
 }
-.comment, .type-writer {
+.type-writer {
     white-space: nowrap;
     overflow: hidden;
+    font-size: 1.85vw;
     font-family: 'Fira Code', monospace;
-    font-style: italic;
-    color: rgba(170, 170, 170, 0.35);
+    max-width: 23.7vw;
+    color: #ffffff;
+    border-right: solid 3px transparent;
+    animation: animated-text 1.2s steps(22,end) 1s 1 normal both,
+                animated-cursor 1060ms linear 3;
+}
+#double-slash {
+    display: none;
 }
 
+
+/*
+-------------------
+    Second page
+-------------------
+*/
+
+
+/*
+ -------------------
+    Media queries
+ -------------------
+*/
+
+/*
 @media (min-width: 844px) {
     #double-slash { display: none; }
     .type-writer {
@@ -130,16 +249,12 @@ svg {
 }
 
 @media (max-width: 750px) {
-    .central-container {
-        flex-direction: column;
-        position: relative;
-    }
-    #title-Finley {
+    .title-container {
         font-size: 6vw;
         margin-left: 0px;
         text-align: center;
     }
-    #title-Finley h1 {
+    .title-container h1 {
         font-size: 50px;
     }
     svg {
@@ -147,3 +262,4 @@ svg {
     }
 }
 
+*/

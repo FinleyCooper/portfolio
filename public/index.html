@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>Finley Cooper | Web Developer</title>
-        <script src="/scripts/index.js"></script>
+        <script src="/scripts/index.js" defer></script>
         <noscript>Awww, what happened to your JavaScript? Bring the internet to life and turn back on your JavaScript <a href="https://www.enable-javascript.com">here</a></noscript>
         <link rel="stylesheet" href="/css/index.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,18 +31,22 @@
         <meta name="msapplication-square310x310logo" content="/icons/mstile-310x310.png" />
     </head>
     <body>
+        <svg id="spinning-circle" class="hidden" width="480" height="480" viewBox="0 0 480 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle id="outerCircle" cx="240" cy="240" r="188.125" stroke-opacity="0.8" stroke-width="43.75"/>
+            <path id="hexagon" d="M128.75 175.881L240 111.651L351.25 175.881V304.341L240 368.571L128.75 304.341V175.881Z" stroke-opacity="0.8" stroke-width="37.5"/>
+            <circle id="centerCircle" cx="240" cy="240" r="50" fill-opacity="0.8"/>
+        </svg>                                         
         <div id="first-page" class="page">
-            <div class="central-container">
-                <div id="title-Finley">
-                    <h1>Finley Cooper</h1>
-                    <p class="type-writer"><span id="double-slash">// </span>JavaScript Programmer</p>
-                </div>
-                <svg id="spinning-circle" class="idle" width="480" height="480" viewBox="0 0 480 480" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle id="outerCircle" cx="240" cy="240" r="188.125" stroke-opacity="0.68" stroke-width="43.75"/>
-                    <path id="hexagon" d="M128.75 175.881L240 111.651L351.25 175.881V304.341L240 368.571L128.75 304.341V175.881Z" stroke-opacity="0.73" stroke-width="37.5"/>
-                    <circle id="centerCircle" cx="240" cy="240" r="50" fill-opacity="0.78"/>
-                </svg>                                                     
+            <div class="title-container">
+                <h1 class="title">Finley Cooper</h1>
+                <p class="type-writer">
+                    <span id="double-slash">// </span>
+                    JavaScript Programmer
+                </p>
             </div>
+        </div>
+        <div id="second-page" class="page">
+
         </div>
     </body>
 </html>
