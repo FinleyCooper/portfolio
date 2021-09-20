@@ -34,14 +34,17 @@ body {
     margin: 0px;
     color: #ffffff;
     background-color: #121212;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Fira Code', monospace;
     margin: 0px;
     max-width: 100%;
 }
-.page {
+.page:not(#first-page) {
     min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 3vh 3vw;
 }
-
 h1.title {
     font-size: 4.2vw;
     font-family: 'Montserrat', sans-serif;
@@ -190,6 +193,7 @@ h2.title {
     }
 }
 #first-page {
+    min-height: 100%;
     display: grid;
     place-items: center;
 }
@@ -203,7 +207,6 @@ h2.title {
     color: rgba(170, 170, 170, 0.35);
     font-style: italic;
     font-size: 1.85vw;
-    font-family: 'Fira Code', monospace;
     border-right: solid 3px transparent;
     animation: animated-cursor 1060ms linear infinite;
 }
@@ -211,7 +214,6 @@ h2.title {
     white-space: nowrap;
     overflow: hidden;
     font-size: 1.85vw;
-    font-family: 'Fira Code', monospace;
     max-width: 23.7vw;
     color: #ffffff;
     border-right: solid 3px transparent;
@@ -228,6 +230,11 @@ h2.title {
     Second page
 -------------------
 */
+
+
+.text-container {
+    width: 50vw;
+}
 
 
 /*
