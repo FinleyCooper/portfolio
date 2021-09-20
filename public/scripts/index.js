@@ -28,8 +28,10 @@ const waitFor = ms => { return new Promise(resolve => setTimeout(resolve, ms)); 
     svg.classList.add("unhiding");
 
     await waitFor(4000);
+
     svg.classList.remove("unhiding")
     svg.classList.add("first-state")
+
     fixedSVGHandlers();
 
 })();
