@@ -14,5 +14,5 @@ app.get("/", (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(process.env.MODE === "PRODUCTION" ? `App Running in Production mode on port ${port}` : `Developer app running at http://localhost:${port}`);
+    console.log(process.env.NODE_ENV === "production" ? `App Running in Production mode on port ${port}` : `Developer app running at http://localhost:${port}`);
 });
