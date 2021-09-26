@@ -4,6 +4,7 @@
   "description": "Portfolio Website for finleycooper.co.uk",
   "main": "index.js",
   "scripts": {
+    "build": "postcss ./public/css/index.css -o ./public/css/index.min.css",
     "start": "node index.js"
   },
   "repository": {
@@ -16,7 +17,10 @@
   },
   "homepage": "https://github.com/FinleyCooper/portfolio#readme",
   "dependencies": {
+    "autoprefixer": "^10.3.6",
+    "cssnano": "^5.0.8",
     "dotenv": "^10.0.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "postcss": "^8.3.8"
   }
 }
