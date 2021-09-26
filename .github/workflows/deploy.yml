@@ -9,7 +9,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
+      - with:
+        node-version: 14
+      - uses: akhileshns/heroku-deploy@v3.12.12
         with:
-          node-version: 14
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "finley-cooper-portfolio" 
+          heroku_email: "finleycoop@icloud.com"
       - run: npm ci
       - run: npm run build
