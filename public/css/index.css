@@ -235,38 +235,3 @@ h2.title {
 .text-container {
     width: 50vw;
 }
-
-
-/*
- -------------------
-    Media queries
- -------------------
-*/
-
-/*
-@media (min-width: 844px) {
-    #double-slash { display: none; }
-    .type-writer {
-        color: #ffffff;
-        font-style: normal;
-        border-right: solid 3px transparent;
-        animation: animated-text 1.2s steps(22,end) 1s 1 normal both,
-                    animated-cursor 1060ms linear 3;
-    }
-}
-
-@media (max-width: 750px) {
-    .title-container {
-        font-size: 6vw;
-        margin-left: 0px;
-        text-align: center;
-    }
-    .title-container h1 {
-        font-size: 50px;
-    }
-    svg {
-        width: 80%
-    }
-}
-
-*/
