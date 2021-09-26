@@ -4,7 +4,6 @@
   "description": "Portfolio Website for finleycooper.co.uk",
   "main": "index.js",
   "scripts": {
-    "heroku-postbuild": "",
     "build": " postcss ./public/css/index.css -o ./public/css/index.min.css",
     "start": "node ./index.js"
   },
