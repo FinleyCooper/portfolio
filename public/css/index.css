@@ -46,7 +46,7 @@ body {
     margin: 3vh 3vw;
 }
 h1.title {
-    font-size: 4.2vw;
+    font-size: calc(3.8vw + 9px);
     font-family: 'Montserrat', sans-serif;
     font-weight: normal;
 }
@@ -183,7 +183,7 @@ h1.title {
 }
 @keyframes slide-left {
     100% {
-        transform: translateX(-30vw);
+        transform: translateX(calc(-32.1vw + 50px));
     }
 }
 #first-page {
@@ -201,7 +201,7 @@ h1.title {
     color: rgba(170, 170, 170, 0.35);
     font-style: italic;
     font-size: 1.85vw;
-    border-right: solid 3px transparent;
+    border-right: solid 0.2vw transparent;
     animation: animated-cursor 1060ms linear infinite;
 }
 .type-writer {
@@ -210,7 +210,7 @@ h1.title {
     font-size: 1.85vw;
     max-width: 23.7vw;
     color: #ffffff;
-    border-right: solid 3px transparent;
+    border-right: solid 0.2vw transparent;
     animation: animated-text 1.2s steps(22,end) 1s 1 normal both,
                 animated-cursor 1060ms linear 3;
 }
