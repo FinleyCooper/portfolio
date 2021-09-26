@@ -50,6 +50,12 @@ h1.title {
     font-family: 'Montserrat', sans-serif;
     font-weight: normal;
 }
+.text-container {
+    width: 50vw;
+}
+.text {
+    font-size: calc(1vw + 5px);
+}
 
 
 /*
@@ -224,8 +230,3 @@ h1.title {
     Second page
 -------------------
 */
-
-
-.text-container {
-    width: 50vw;
-}
