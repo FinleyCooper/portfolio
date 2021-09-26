@@ -211,7 +211,7 @@ h1.title {
     max-width: 23.7vw;
     color: #ffffff;
     border-right: solid 0.2vw transparent;
-    animation: animated-text 1.2s steps(22,end) 1s 1 normal both,
+    animation: animated-text 1.2s steps(26,end) 1s 1 normal both,
                 animated-cursor 1060ms linear 3;
 }
 #double-slash {
