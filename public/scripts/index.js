@@ -42,7 +42,6 @@ const waitFor = ms => { return new Promise(resolve => setTimeout(resolve, ms)); 
 
 function fixedSVGHandlers() {
     let { outerCircle, centerCircle, hexagon, svg } = getFixedSVGParts();
-    console.log(hexagon)
     function stopSpin() {
         centerCircle.classList.remove("enlarge-shrink");
         hexagon.classList.remove("spin");               

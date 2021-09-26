@@ -51,12 +51,6 @@ h1.title {
     font-weight: normal;
 }
 
-h2.title {
-    font-size: 4.2vw;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: normal;
-}
-
 
 /*
  -----------------
@@ -181,7 +175,7 @@ h2.title {
 
 @keyframes animated-text {
     0% { width: 0; }
-    100% { width: 480px; }
+    100% { width: 100%; } /*480*/
 }
 @keyframes animated-cursor {
     0%, 49.9%, 100% { border-right-color: #ffffff; }
