@@ -21,6 +21,7 @@
     "cssnano": "^5.0.8",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "postcss": "^8.3.8"
+    "postcss": "^8.3.8",
+    "postcss-cli": "^9.0.0"
   }
 }
