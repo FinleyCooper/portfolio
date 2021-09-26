@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "postcss ./public/css/index.css -o ./public/css/index.min.css",
-    "start": "node index.js"
+    "start": "node ./index.js"
   },
   "repository": {
     "type": "git",
