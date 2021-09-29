@@ -41,8 +41,9 @@ body {
 .page:not(#first-page) {
     min-height: 100%;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: flex-start;
+    flex-direction: column;
     margin: 3vh 3vw;
 }
 h1.title {
@@ -54,7 +55,7 @@ h1.title {
     width: 50vw;
 }
 .text {
-    font-size: calc(1vw + 5px);
+    font-size: calc(0.8vw + 5px);
 }
 
 
@@ -105,6 +106,7 @@ h1.title {
     top: 50%;
     right: 2vw;
     transform: translateY(-50%);
+    z-index: 2;
 }
 #spinning-circle:not(.hidden, .unhiding) {
     cursor: pointer;
@@ -227,6 +229,39 @@ h1.title {
 
 /*
 -------------------
-    Second page
+    About page
 -------------------
 */
+
+
+
+/*
+-------------------
+    Skills page
+-------------------
+*/
+
+.bar {
+    fill: var(--light-blue);
+    opacity: 0.8;
+}
+.label {
+    fill: #ffffff;
+}
+.y-axis {
+    fill: #ffffff;
+}
+.chart-container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    vertical-align: top;
+    overflow: hidden;
+}
+.skills-chart {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}

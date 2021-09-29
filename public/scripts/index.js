@@ -3,6 +3,67 @@
 
 const waitFor = ms => { return new Promise(resolve => setTimeout(resolve, ms)); }
 
+const data = [{ skill: "React", level: 1 }, { skill: "SQL", level: 2 }, { skill: "Git", level: 3 }, { skill: "Python", level: 4 }, { skill: "CSS", level: 5 }, { skill: "HTML", level: 5 }, { skill: "Javascript", level: 6 }];
+const margin = { top: 50, right: 25, bottom: 15, left: 100 };
+
+const width = 1200 - margin.left - margin.right;
+const height = 500  - margin.top - margin.bottom;
+
+const svg = d3.select(".chart-container").append("svg")
+.attr("viewBox", `0 0 1800 600`)
+.attr("class", "skills-chart")
+.append("g")
+.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+const x = d3.scale.linear()
+.range([0, width])
+.domain([0, 10]);
+
+const y = d3.scale.ordinal()
+.rangeRoundBands([height, 0], 0.1)
+.domain(data.map(d => {
+    return d.skill;
+}));
+
+const yAxis = d3.svg.axis()
+.scale(y)
+.tickSize(0)
+.orient("left");
+
+const gy = svg.append("g")
+.attr("class", "y-axis")
+.call(yAxis)
+
+const bars = svg.selectAll(".bar")
+.data(data)
+.enter()
+.append("g")
+
+bars.append("rect")
+.attr("class", "bar")
+.attr("y", d => {
+    return y(d.skill);
+})
+.attr("height", y.rangeBand())
+.attr("x", 0)
+.attr("width", d => {
+    return x(d.level);
+});
+
+bars.append("text")
+.attr("class", "label")
+.attr("y", d => {
+    return y(d.skill) + y.rangeBand() / 2 + 4;
+})
+.attr("x", d => {
+    return x(d.level) + 3;
+})
+.text(d => {
+    return d.level;
+});
+
+document.querySelectorAll("#age").forEach(elem => elem.innerText = Math.floor((new Date() - new Date(1149289200000)) / (1000 * 60 * 60 * 24 * 365.25)).toString());
+
 (async function() {
 
     // typewrite effect
@@ -35,10 +96,6 @@ const waitFor = ms => { return new Promise(resolve => setTimeout(resolve, ms)); 
     fixedSVGHandlers();
 
 })();
-
-
-
-
 
 function fixedSVGHandlers() {
     let { outerCircle, centerCircle, hexagon, svg } = getFixedSVGParts();
