@@ -67,9 +67,7 @@ const waitFor = ms => { return new Promise(resolve => setTimeout(resolve, ms)); 
 
 // contact page
 (function () {
-    console.log("h")
     document.querySelector(".submit").addEventListener("click", e => {
-        console.log("hj")
         e.preventDefault();
         fetch("/api/contact", {
             headers: { "Content-Type": "application/json" },
