@@ -36,7 +36,7 @@ app.post("/api/contact", (req, res) => {
     });
 
     function getCleanString(text, maxLength, defualtText) {
-        return (typeof text === "string" && text.length < maxLength) ? text : defualtText;
+        return (text && typeof text === "string" && text.length < maxLength) ? text : defualtText;
     }
 })
 
