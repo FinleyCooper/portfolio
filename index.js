@@ -2,6 +2,7 @@
 
 
 const express = require("express");
+const rateLimit = require("express-rate-limit");
 const fetch = require("node-fetch").default;
 require("dotenv").config();
 
@@ -9,8 +10,15 @@ const port = process.env.PORT || 8000;
 
 const app = express();
 
+const apiLimiter = rateLimit({
+    windowMs: 10 * 60 * 1000, // 10 min limit after 10 requests
+    max: 10
+});
+
+
 app.use(express.json());
 app.use(express.static("./public"));
+app.use("/api/", apiLimiter);
 
 app.get("/", (req, res) => {
     res.sendFile("./public/index.html", {root: __dirname});
