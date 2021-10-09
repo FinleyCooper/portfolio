@@ -27,6 +27,7 @@
 html {
     height: 100%;
     max-width: 100%;
+    overflow-x: hidden;
 }
 
 body {
@@ -47,15 +48,15 @@ body {
     margin: 3vh 3vw;
 }
 h1.title {
-    font-size: calc(3.8vw + 9px);
+    font-size : clamp(2rem, 6vw, 5rem);
     font-family: 'Montserrat', sans-serif;
     font-weight: normal;
 }
 .text-container {
-    width: 50vw;
+    width: 60vw;
 }
 .text {
-    font-size : clamp(0.5rem, 2vw, 1rem);
+    font-size : clamp(0.8rem, 2vw, 1rem);
 }
 
 
@@ -191,7 +192,7 @@ h1.title {
 }
 @keyframes slide-left {
     100% {
-        transform: translateX(calc(-32.1vw + 50px));
+        transform: translateX(calc(-31.5vw + 100px));
     }
 }
 #first-page {
@@ -202,21 +203,24 @@ h1.title {
 .slide-left {
     animation: slide-left 1s cubic-bezier(0.68, -0.6, 0.32, 1.6) 0s 1 normal forwards;
 }
+.title-container {
+    min-width: calc(clamp(1rem, 3.5vw, 2.2rem) * 14.8);
+}
 .comment {
-    max-width: 27.5vw;
+    max-width: calc(clamp(1rem, 3.5vw, 2.2rem) * 14.7);
     white-space: nowrap;
     overflow: hidden;
     color: rgba(170, 170, 170, 0.35);
     font-style: italic;
-    font-size: 1.85vw;
+    font-size : clamp(1rem, 3.5vw, 2.2rem);
     border-right: solid 0.2vw transparent;
     animation: animated-cursor 1060ms linear infinite;
 }
 .type-writer {
     white-space: nowrap;
     overflow: hidden;
-    font-size: 1.85vw;
-    max-width: 23.7vw;
+    font-size : clamp(1rem, 3.5vw, 2.2rem);
+    max-width: calc(clamp(1rem, 3.5vw, 2.2rem) * 13);
     color: #ffffff;
     border-right: solid 0.2vw transparent;
     animation: animated-text 1.2s steps(25,end) 1s 1 normal both,
@@ -279,10 +283,12 @@ h1.title {
     Contact Me page
 ------------------1----
 */
-
+.form-container {
+    width: 60vw;
+}
 .contact-form {
-    width: min(50%, 500px);
-    height: 40%;
+    width: min(50vw, 500px);
+    height: 40vh;
 }
 .input-field {
     width: calc(100% - 40px);
@@ -303,4 +309,25 @@ h1.title {
 }
 .message {
     height: 30%;
+}
+
+@media (max-aspect-ratio: 1/1) {
+    #spinning-circle {
+        display: none;
+    }
+    .page:not(#first-page) {
+        align-items: center;
+    }
+    .title-container {
+        animation: none;
+    }
+    .contact-form {
+        float: left;
+    }
+    .chart-container {
+        width: 200%;
+    }
+    .skills-chart {
+        transform: translateX(25%);
+    }
 }
