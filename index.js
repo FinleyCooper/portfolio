@@ -12,7 +12,7 @@ const app = express();
 
 const apiLimiter = rateLimit({
     windowMs: 10 * 60 * 1000, // 10 min limit after 10 requests
-    max: 10
+    max: 3
 });
 
 
