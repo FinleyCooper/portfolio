@@ -11,7 +11,7 @@ const port = process.env.PORT || 8000;
 const app = express();
 
 const apiLimiter = rateLimit({
-    windowMs: 10 * 60 * 1000, // 10 min limit after 10 requests
+    windowMs: 10 * 60 * 1000, // 10 min limit after 3 requests
     max: 3
 });
 
