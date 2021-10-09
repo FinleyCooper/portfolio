@@ -63,6 +63,31 @@ const waitFor = ms => { return new Promise(resolve => setTimeout(resolve, ms)); 
     .text(d => {
         return d.level;
     });
+
+    const chartContainer = document.querySelector(".chart-container")
+
+    const chartObserver = new IntersectionObserver(entries => {
+        if (entries[0].intersectionRatio > 0) {
+            document.querySelectorAll(".bar").forEach(bar => {
+                const barWidth = bar.width.baseVal.value;
+                const extendBar = setInterval(frame, 15);
+
+                bar.setAttribute("width", 0)
+                const labels = document.querySelectorAll(".label")
+                labels.forEach(label => label.style.display = "none")
+
+                function frame() {
+                    if (bar.width.baseVal.value >= barWidth) {
+                        labels.forEach(label => label.style.display = "initial")
+                        clearInterval(extendBar);
+                    }
+                    else bar.setAttribute("width", bar.width.baseVal.value + barWidth/50 * Math.sin(Math.acos(bar.width.baseVal.value/barWidth)));
+                }
+            })
+        }
+      });
+      
+    chartObserver.observe(chartContainer);
 })();
 
 // contact page
