@@ -106,6 +106,18 @@ const waitFor = ms => { return new Promise(resolve => setTimeout(resolve, ms)); 
     });
 })();
 
+// color selector
+(function () {
+    document.querySelector(".color-selector").addEventListener("click", () => {
+        const colorOption = document.querySelector(".color-option");
+        const mode = colorOption.classList[1];
+
+        colorOption.setAttribute("class", `color-option ${document.body.className}`);
+        document.querySelector(".selector-title").innerHTML = `${document.body.className.charAt(0).toUpperCase() + document.body.className.slice(1)} Mode`
+        document.body.className = mode;
+        
+    });
+})();
 
 // animation
 (async function () {
@@ -114,8 +126,7 @@ const waitFor = ms => { return new Promise(resolve => setTimeout(resolve, ms)); 
     await waitFor(2800);
     
     let textToComment = document.querySelector(".title-container .type-writer")
-    textToComment.classList.remove("type-writer");
-    textToComment.classList.add("comment");
+    textToComment.classList.replace("type-writer", "comment")
     document.querySelector("#double-slash").style.display = "initial";
     
     await waitFor(600);
@@ -129,16 +140,13 @@ const waitFor = ms => { return new Promise(resolve => setTimeout(resolve, ms)); 
     // show fixed svg
     let { svg } = getFixedSVGParts();
     
-    svg.classList.remove("hidden");
-    svg.classList.add("unhiding");
+    svg.classList.replace("hidden", "unhiding");
     
     await waitFor(4000);
-    
-    svg.classList.remove("unhiding")
-    svg.classList.add("first-state")
+
+    svg.classList.replace("unhiding", "first-state");
     
     fixedSVGHandlers();
-    
 })();
 
 function fixedSVGHandlers() {
@@ -149,7 +157,7 @@ function fixedSVGHandlers() {
     }
     
     function startSpin() {
-        if (Array.from(svg.classList).includes("first-transform")) return;
+        if (svg.classList.contains("first-transform")) return;
         hexagon.removeEventListener("animationiteration", stopSpin);
         centerCircle.classList.add("enlarge-shrink");
         hexagon.classList.add("spin");
@@ -159,13 +167,12 @@ function fixedSVGHandlers() {
     svg.addEventListener("mouseleave", () => { hexagon.addEventListener("animationiteration", stopSpin); });
     
     svg.addEventListener("click", () => {
-        if (!Array.from(svg.classList).includes("first-state")) return;
+        if (!svg.classList.contains("first-state")) return;
         centerCircle.addEventListener("animationiteration", stopSpin, {once: true})
-        svg.classList.remove("first-state");
-        svg.classList.add("first-transform");
+        svg.classList.replace("first-state", "first-transform")
+
         outerCircle.addEventListener("animationiteration", () => {
-            svg.classList.add("second-state");
-            svg.classList.remove("first-transform");
+            svg.classList.replace("first-transform", "second-state")
         }, {once: true});
     });
 }

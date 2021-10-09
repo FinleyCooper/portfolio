@@ -3,6 +3,19 @@
     --light-purple: #7A73FF;
     --light-green: #00ffa2;
 }
+body.dark {
+    --background-color: #121212;
+    --lighter-background-color: #313131;
+    --text-color: #ffffff;
+    --comment-color: rgba(170, 170, 170, 0.35);
+
+}
+body.light {
+    --background-color: #ffffff;
+    --text-color: #000;
+    --comment-color: rgba(170, 170, 170, 1);
+    --lighter-background-color: #ffffff;
+}
 ::-webkit-scrollbar {
     width: 12px;
     background-color: transparent;
@@ -34,8 +47,8 @@ body {
     overflow-x: hidden;
     height: 100%;
     margin: 0px;
-    color: #ffffff;
-    background-color: #121212;
+    color: var(--text-color);
+    background-color: var(--background-color);
     font-family: 'Fira Code', monospace;
     margin: 0px;
     max-width: 100%;
@@ -62,7 +75,24 @@ h1.title {
 
 
 /*
- -----------------
+ ------------------
+    Color picker
+ ------------------
+*/
+
+.color-selector {
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    z-index: 3;
+    top: 5px;
+    right: 20px;
+    fill: var(--text-color);
+    cursor: pointer;
+}
+
+/*
+ ----------------
     Fixed SVG
  ----------------
 */
@@ -188,7 +218,7 @@ h1.title {
     100% { width: 95%; }
 }
 @keyframes animated-cursor {
-    0%, 49.9%, 100% { border-right-color: #ffffff; }
+    0%, 49.9%, 100% { border-right-color: var(--text-color); }
     50%, 99.9% { border-right-color: transparent; }
 }
 @keyframes slide-left {
@@ -211,7 +241,7 @@ h1.title {
     max-width: calc(clamp(1rem, 3.5vw, 2.2rem) * 14.7);
     white-space: nowrap;
     overflow: hidden;
-    color: rgba(170, 170, 170, 0.35);
+    color: var(--comment-color);
     font-style: italic;
     font-size : clamp(1rem, 3.5vw, 2.2rem);
     border-right: solid 0.2vw transparent;
@@ -222,7 +252,7 @@ h1.title {
     overflow: hidden;
     font-size : clamp(1rem, 3.5vw, 2.2rem);
     max-width: calc(clamp(1rem, 3.5vw, 2.2rem) * 13);
-    color: #ffffff;
+    color: var(--text-color);
     border-right: solid 0.2vw transparent;
     animation: animated-text 1.2s steps(25,end) 1s 1 normal both,
                 animated-cursor 1060ms linear 3;
@@ -251,10 +281,10 @@ h1.title {
     opacity: 0.8;
 }
 .label {
-    fill: #ffffff;
+    fill: var(--text-color);
 }
 .y-axis {
-    fill: #ffffff;
+    fill: var(--text-color);
 }
 .chart-container {
     display: inline-block;
@@ -294,13 +324,13 @@ h1.title {
 .input-field {
     width: calc(100% - 40px);
     margin: 10px;
-    border: none;
+    border: medium solid #121212;
     padding: 10px;
     border-radius: 4px;
     outline: none;
     font-size: 14px;
-    background: #313131;
-    color: #fff;
+    background: var(--lighter-background-color);
+    color: var(--text-color);
     font-family: Arial, Helvetica, sans-serif;
 }
 .submit {
