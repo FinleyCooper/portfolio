@@ -106,18 +106,6 @@ const waitFor = ms => { return new Promise(resolve => setTimeout(resolve, ms)); 
     });
 })();
 
-// color selector
-(function () {
-    document.querySelector(".color-selector").addEventListener("click", () => {
-        const colorOption = document.querySelector(".color-option");
-        const mode = colorOption.classList[1];
-
-        colorOption.setAttribute("class", `color-option ${document.body.className}`);
-        document.querySelector(".selector-title").innerHTML = `${document.body.className.charAt(0).toUpperCase() + document.body.className.slice(1)} Mode`
-        document.body.className = mode;
-        
-    });
-})();
 
 // animation
 (async function () {
@@ -172,7 +160,8 @@ function fixedSVGHandlers() {
         svg.classList.replace("first-state", "first-transform")
 
         outerCircle.addEventListener("animationiteration", () => {
-            svg.classList.replace("first-transform", "second-state")
+            svg.classList.replace("first-transform", "second-state");
+            svg.addEventListener("click", () => document.body.className = "light", {once: true});
         }, {once: true});
     });
 }

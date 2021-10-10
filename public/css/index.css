@@ -1,9 +1,7 @@
-:root {
+body.dark {
     --light-blue: #80E9FF;
     --light-purple: #7A73FF;
     --light-green: #00ffa2;
-}
-body.dark {
     --background-color: #121212;
     --lighter-background-color: #313131;
     --text-color: #ffffff;
@@ -11,6 +9,8 @@ body.dark {
 
 }
 body.light {
+    --light-green: #b3b3b3;
+    --light-blue: #282828;
     --background-color: #ffffff;
     --text-color: #000;
     --comment-color: rgba(170, 170, 170, 1);
@@ -73,23 +73,6 @@ h1.title {
     font-size : clamp(0.8rem, 2vw, 1rem);
 }
 
-
-/*
- ------------------
-    Color picker
- ------------------
-*/
-
-.color-selector {
-    width: 40px;
-    height: 40px;
-    position: fixed;
-    z-index: 3;
-    top: 5px;
-    right: 20px;
-    fill: var(--text-color);
-    cursor: pointer;
-}
 
 /*
  ----------------
