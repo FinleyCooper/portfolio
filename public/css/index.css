@@ -309,7 +309,6 @@ h1.title {
     margin: 10px;
     border: medium solid #121212;
     padding: 10px;
-    border-radius: 4px;
     outline: none;
     font-size: 14px;
     background: var(--lighter-background-color);
@@ -317,9 +316,10 @@ h1.title {
     font-family: Arial, Helvetica, sans-serif;
 }
 .submit {
-    width: 80px;
+    width: clamp(60px, 30%, 140px);
     cursor: pointer;
     float: right;
+    font-family: 'Fira Code', monospace;
 }
 .message {
     height: 30%;
