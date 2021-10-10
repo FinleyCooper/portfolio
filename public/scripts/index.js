@@ -94,15 +94,22 @@ const waitFor = ms => { return new Promise(resolve => setTimeout(resolve, ms)); 
 (function () {
     document.querySelector(".submit").addEventListener("click", e => {
         e.preventDefault();
+        
+        let name = document.querySelector(".name");
+        let email = document.querySelector(".email");
+        let message = document.querySelector(".message");
+
         fetch("/api/contact", {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
-                name: document.querySelector(".name").value,
-                email: document.querySelector(".email").value,
-                message: document.querySelector(".message").value
+                name: name.value,
+                email: email.value,
+                message: message.value,
             }),
             method: "POST"
         });
+
+        [name, email, message].forEach(input => input.value = "" );
     });
 })();
 
