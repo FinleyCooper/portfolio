@@ -54,7 +54,7 @@ body {
     max-width: 100%;
 }
 .page:not(#first-page) {
-    height: 100%;
+    min-height: 100%;
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
