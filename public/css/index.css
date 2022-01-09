@@ -119,11 +119,9 @@ h1.title {
     right: 2vw;
     transform: translateY(-50%);
     z-index: 2;
-    pointer-events: visibleFill;
-}
-/* .spinning-circle:not(.hidden, .unhiding) {
+    pointer-events: visibleStroke;
     cursor: pointer;
-} */
+}
 .outerCircle {
     stroke: var(--light-blue);
     opacity: 0.8;
@@ -135,7 +133,6 @@ h1.title {
 .hexagon {
     stroke: var(--light-purple);
     opacity: 0.8;
-
 }
 .first-transform .hexagon {
     transform-origin: center;
