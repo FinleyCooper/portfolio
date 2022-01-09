@@ -238,7 +238,7 @@ h1.title {
     animation: animated-text 1.2s steps(25,end) 1s 1 normal both,
                 animated-cursor 1060ms linear 3;
 }
-#double-slash {
+.double-slash {
     display: none;
 }
 
