@@ -5,7 +5,16 @@ const waitFor = ms => { return new Promise(resolve => setTimeout(resolve, ms)); 
 
 // skills graph
 (function () {
-    const data = [{ skill: "React", level: 1 }, { skill: "SQL", level: 2 }, { skill: "Git", level: 3 }, { skill: "Python", level: 4 }, { skill: "CSS", level: 5 }, { skill: "HTML", level: 5 }, { skill: "Javascript", level: 6 }];
+    const data = [
+        { skill: "React",      level: 2 },
+        { skill: "SQL",        level: 1 },
+        { skill: "Git",        level: 1 },
+        { skill: "Python",     level: 5 },
+        { skill: "CSS",        level: 6 },
+        { skill: "HTML",       level: 5 },
+        { skill: "Javascript", level: 7}
+    ].sort((a, b) => a.level - b.level);
+
     const margin = { top: 50, right: 25, bottom: 15, left: 100 };
     
     const width = 1200 - margin.left - margin.right;
@@ -32,7 +41,7 @@ const waitFor = ms => { return new Promise(resolve => setTimeout(resolve, ms)); 
     .tickSize(0)
     .orient("left");
     
-    const gy = svg.append("g")
+    svg.append("g")
     .attr("class", "y-axis")
     .call(yAxis)
     
@@ -81,7 +90,7 @@ const waitFor = ms => { return new Promise(resolve => setTimeout(resolve, ms)); 
                         labels.forEach(label => label.style.display = "initial")
                         clearInterval(extendBar);
                     }
-                    else bar.setAttribute("width", bar.width.baseVal.value + barWidth/50 * Math.sin(Math.acos(bar.width.baseVal.value/barWidth)));
+                    else bar.setAttribute("width", bar.width.baseVal.value + barWidth / 50 * Math.sin(Math.acos(bar.width.baseVal.value / barWidth)));
                 }
             })
         }
@@ -122,7 +131,7 @@ const waitFor = ms => { return new Promise(resolve => setTimeout(resolve, ms)); 
     
     let textToComment = document.querySelector(".title-container .type-writer")
     textToComment.classList.replace("type-writer", "comment")
-    document.querySelector("#double-slash").style.display = "initial";
+    document.querySelector(".double-slash").style.display = "initial";
     
     await waitFor(600);
     
@@ -175,11 +184,11 @@ function fixedSVGHandlers() {
 
 
 function getFixedSVGParts() {
-    let outerCircle = document.querySelector("#outerCircle");
-    let centerCircle = document.querySelector("#centerCircle");
-    let hexagon = document.querySelector("#hexagon");
-    let svg = document.querySelector("#spinning-circle")
+    let outerCircle = document.querySelector(".outerCircle");
+    let centerCircle = document.querySelector(".centerCircle");
+    let hexagon = document.querySelector(".hexagon");
+    let svg = document.querySelector(".spinning-circle")
     return { outerCircle, centerCircle, hexagon, svg }
 }
 
-document.querySelectorAll("#age").forEach(elem => elem.innerText = Math.floor((new Date() - new Date(1149289200000)) / (1000 * 60 * 60 * 24 * 365.25)).toString());
+document.querySelectorAll(".age").forEach(elem => elem.innerText = Math.floor((new Date() - new Date(1149289200000)) / (1000 * 60 * 60 * 24 * 365.25)).toString());
