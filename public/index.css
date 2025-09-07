@@ -57,10 +57,11 @@ body::before {
 .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     gap: 100px;
     max-width: 1800px;
     width: 100%;
+    place-items: center;
 }
 
 .project-card {
@@ -77,6 +78,8 @@ body::before {
     aspect-ratio: 3 / 1;
     position: relative;
     overflow: hidden;
+    width: 100%;
+    max-width: 500px;
 }
 
 .project-card:hover {
@@ -161,19 +164,18 @@ body::before {
 }
 
 /* Responsive design */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .grid {
-        max-width: 800px;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, 1fr);
+        max-width: 600px;
         gap: 40px;
     }
     
     .project-card {
         padding: 60px 30px;
         border-radius: 20px;
-    }
-    
-    .project-card::before {
-        border-radius: 20px;
+        max-width: 500px;
     }
     
     .project-card span {
@@ -195,13 +197,16 @@ body::before {
     }
     
     .grid {
-        max-width: 600px;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, 1fr);
+        max-width: 400px;
         gap: 25px;
     }
     
     .project-card {
         padding: 40px 20px;
         border-radius: 16px;
+        max-width: 400px;
     }
     
     .project-card::before {
