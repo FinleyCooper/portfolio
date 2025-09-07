@@ -19,10 +19,10 @@ body {
 }
 
 .name-title {
-    position: fixed;
-    top: 30px;
+    position: absolute;
+    top: 20px;
     left: 30px;
-    font-size: 32px;
+    font-size: 2em;
     font-weight: 400;
     color: rgba(0, 0, 0, 0.6);
     z-index: 100;
@@ -188,12 +188,19 @@ body::before {
     
     .container {
         gap: 40px;
+        padding-top: 80px;
+    }
+    
+    .name-title {
+        font-size: 1.5em;
+        top: 15px;
+        left: 20px;
     }
 }
 
 @media (max-width: 480px) {
     body {
-        padding-top: 5vh;
+        padding-top: 0;
     }
     
     .grid {
@@ -223,6 +230,14 @@ body::before {
     
     .container {
         gap: 30px;
+        padding-top: 0px;
+        padding-bottom: 80px
+    }
+    
+    .name-title {
+        font-size: 1.2em;
+        top: 10px;
+        left: 15px;
     }
 }
 
